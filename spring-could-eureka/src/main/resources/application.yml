@@ -1,0 +1,27 @@
+server:
+  port: 8001
+
+eureka:
+  instance:
+    #IP地址的方式显示监控的应用
+    prefer-ip-address: true
+    hostname: localhost
+    #租期更新时间间隔（默认30秒） 心跳检查
+    lease-renewal-interval-in-seconds: 5
+    #租期到期时间（默认90秒） 一定时间内没有接收到某个服务实例的心跳，Eureka Server 将会注销该实例
+    lease-expiration-duration-in-seconds: 3
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  #eureka服务清理间隔（单位毫秒）
+  server:
+    eviction-interval-timer-in-ms: 4000
+#
+#security:
+#  basic:
+#    enabled: false
+#  user:
+#    name: admin
+#    password: admin01

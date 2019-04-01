@@ -1,0 +1,11 @@
+server:
+  port: 8101
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8001/eureka/
+
+spring:
+  application:
+    name: could-service
